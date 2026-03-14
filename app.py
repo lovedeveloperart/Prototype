@@ -66,7 +66,7 @@ future_dates_ordinal = np.array([d.toordinal() for d in future_dates]).reshape(-
 future_predict = model.predict(future_dates_ordinal)
 
 # แสดงผลการพยากรณ์
-pred_df = pd.DataFrame({'วันที่พยากรณ์': [d.strftime('%Y-%m-%d') for d in future_dates], 'ราคาปิดที่คาดการณ์ (USD/THB)': future_predict})
+pred_df = pd.DataFrame({'วันที่พยากรณ์': [d.strftime('%Y-%m-%d') for d in future_dates], 'ราคาปิดที่คาดการณ์ (USD/THB)': future_predict.flatten()})
 st.table(pred_df)
 
 st.info("หมายเหตุ: นี่คือ Prototype สำหรับแสดงผลการทำงาน (Proof of Concept) โมเดลที่ใช้เป็นเพียง Linear Regression พื้นฐานสำหรับการสาธิตเท่านั้น")
